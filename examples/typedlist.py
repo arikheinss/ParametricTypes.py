@@ -14,9 +14,6 @@ from src.parametrictypes import ParametricClass
 
 T = TypeVar("T")
 class TypedList[T](metaclass = ParametricClass):
-    # like Dict, but with extra typechecks
-    def typeparams(self):
-        return self.__params__
 
     def __init__(self):
         self.data = []
@@ -77,5 +74,5 @@ print("Types are covariant: ", isinstance(type(l_b), type(l_a))) # False
 
 b = B()
 l_a.append(b)
-print(l_a)
+print(l_a) # <class '__main__.A'>[<__main__.B object at 0x0000022D7E695190>]
 # in other words: subclasses are respected by type params
