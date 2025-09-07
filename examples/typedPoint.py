@@ -32,11 +32,6 @@ class line[T](metaclass = CheckedParametric):
         self.length = math.sqrt(sqr(p1.x - p2.x) + sqr(p1.y - p2.y))
 
 
-print(point.__annotations__)
-print(point[int].__annotations__)
-
-print(line.__annotations__)
-print(line[int].__annotations__)
 
 p = point[int]()
 p.x = 2
