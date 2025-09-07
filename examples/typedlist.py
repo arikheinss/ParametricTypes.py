@@ -2,8 +2,8 @@
 # ignore this shit here...
 import sys
 import os
-sys.path.append(os.path.abspath("."))
-
+base, _ = os.path.split(__file__)
+sys.path.append(os.path.abspath(os.path.join(base, "..")))
 
 
 # this is the example
@@ -17,8 +17,8 @@ T = TypeVar("T")
 
 class TypedList[T](metaclass = ParametricClass):
 
-    def __init__(self):
-        self.data = []
+    def __init__(self, data = None):
+        self.data = data or []
 
     def __setitem__(self, i: int, v: T):
         if not isinstance(v, T):
@@ -39,14 +39,15 @@ class TypedList[T](metaclass = ParametricClass):
 #=========================================================================
 #=========================================================================
 
-l_int = TypedList[int]()
-l_int.append(2)
-print(l_int) # <class 'int'>[2]
+l_int = TypedList[int]([0, 0])
+l_int[0] = 1
+l_int[1] = 11
+print(l_int) # <class 'int'>[1, 11]
 
 
 
 try:
-    l_int.append("asdf")
+    l_int[1] = "hello"
 except Exception as e:
     print("Got Exception: ", e)
 
