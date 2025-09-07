@@ -74,7 +74,7 @@ class B(A): pass
 
 l_a = TypedList[A]()
 l_b = TypedList[B]()
-print("Types are covariant: ", isinstance(type(l_b), type(l_a))) # False
+print("Types are covariant: ", isinstance(l_b, type(l_a))) # False
 
 b = B()
 l_a.append(b)
