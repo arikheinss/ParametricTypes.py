@@ -7,12 +7,14 @@ sys.path.append(os.path.abspath("."))
 
 
 # this is the example
+#=========================================================================
+#=========================================================================
 from typing import TypeVar
 from src.parametrictypes import ParametricClass
-
-
-
 T = TypeVar("T")
+
+
+
 class TypedList[T](metaclass = ParametricClass):
 
     def __init__(self):
@@ -34,7 +36,8 @@ class TypedList[T](metaclass = ParametricClass):
 
     def __str__(self):
         return f"{T}{self.data}"
-
+#=========================================================================
+#=========================================================================
 
 l_int = TypedList[int]()
 l_int.append(2)
